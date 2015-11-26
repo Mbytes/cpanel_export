@@ -1,0 +1,1 @@
+Exporta a fichero de texto el listado de dominios y cuentas de correo existente en un servidor WHM
