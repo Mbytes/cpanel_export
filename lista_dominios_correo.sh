@@ -19,6 +19,13 @@ echo "Procesa ${DOMINIO}"
 #Generamos ficheros
 grep ":.$" $1 | sed -e 's/ //g' | awk -F: '{print $1 " cpanelpwd" }' > ${DESTINO}/$2.txt
 
+
+#Añadimos Alias
+if test -f /etc/valiases/$2
+then
+  cat  /etc/valiases/$2 | grep "@" | awk -F@ '{print $1 " cpanelalias"}'  >> ${DESTINO}/$2.txt
+fi
+
 #Contamos cuentas y actulizamos SD2
 NCUENTAS=$(wc -l ${DESTINO}/$2.txt | awk '{print $1}')
 
